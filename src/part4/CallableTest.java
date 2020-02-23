@@ -12,7 +12,6 @@ import java.util.concurrent.FutureTask;
 public class CallableTest {
     public static void main(String[] args) {
         ThreadDemo td = new ThreadDemo();
-        //1.执行 Callable 方式，需要 FutureTask 实现类的支持，用于接收运算结果。
         FutureTask<Integer> result = new FutureTask<>(td);
         new Thread(result).start();
         try {
