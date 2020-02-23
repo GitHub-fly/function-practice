@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4f956bc-f608-43aa-9eb2-6417b847b5ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/part3/RandomTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/part2/函数式编程 (1).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/part2/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/part2/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +57,9 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\function-practice\src\part2" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\function-practice" />
     </key>
@@ -120,12 +125,24 @@
       <updated>1582385114390</updated>
       <workItem from="1582385115595" duration="110000" />
       <workItem from="1582389065322" duration="597000" />
-      <workItem from="1582447572696" duration="117000" />
+      <workItem from="1582447572696" duration="918000" />
     </task>
+    <task id="LOCAL-00001" summary="XL码 的 唐">
+      <created>1582447827104</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582447827104</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="XL码 的 唐" />
+    <option name="LAST_COMMIT_MESSAGE" value="XL码 的 唐" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="88" key="#Project_Structure" timestamp="1582447688449">
@@ -136,6 +153,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="967" y="377" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582389109301" />
+    <state x="560" y="114" key="CommitChangelistDialog2" timestamp="1582447825200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="560" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582447825200" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1582389331644">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
