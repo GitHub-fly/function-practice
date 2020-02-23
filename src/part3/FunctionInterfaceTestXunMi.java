@@ -14,46 +14,46 @@ public class FunctionInterfaceTestXunMi {
 
     public static void main(String[] args) {
         Person person = (type -> {
-            /* 根据不同职业类型，拟建手机号码 */
+            /* ?????????????????????? */
             Random random = new Random();
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < 8; i++) {
                 stringBuilder.append(random.nextInt(10));
             }
             switch (type) {
-                case "学生":
+                case "???":
                     return "136" + stringBuilder;
-                case "老师":
+                case "???":
                     return "137" + stringBuilder;
-                case "工人":
+                case "????":
                     return "138" + stringBuilder;
-                case "其它":
+                case "????":
                     return "139" + stringBuilder;
                 default:
                     return "%%%***%%%***%%%";
             }
         });
         Scanner scanner = new Scanner(System.in);
-        System.out.println("请选择你的职业类型：学生；老师；工人；其它。");
+        System.out.println("????????????????????????????????????");
         String type = scanner.nextLine();
         String phoneNumber = person.getPhone(type);
         if (phoneNumber.equals("%%%***%%%***%%%")) {
-            System.out.println("请正确选择职业类型");
+            System.out.println("??????????????");
         } else {
-            System.out.println("给您随机出来的手机号码为：" + phoneNumber);
+            System.out.println("???????????????????????" + phoneNumber);
         }
         scanner.close();
     }
 }
 
-@FunctionalInterface
+@java.lang.FunctionalInterface
 interface Person {
 
     /**
-     * 拟建手机号的方法
+     * ???????????
      *
-     * @param type 自己的职业类型
-     * @return 拟建出来的手机号
+     * @param type ???????????
+     * @return ?????????????
      */
     String getPhone(String type);
 }
