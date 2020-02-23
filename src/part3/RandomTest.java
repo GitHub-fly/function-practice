@@ -39,7 +39,7 @@ public class RandomTest {
     }
 }
 
-@FunctionalInterface
+@java.lang.FunctionalInterface
 interface Calculator {
     /**
      * 模拟计算器进行计算
