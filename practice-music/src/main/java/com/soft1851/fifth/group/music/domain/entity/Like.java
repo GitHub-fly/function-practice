@@ -14,7 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Collection {
+public class Like {
     private Integer id;
     private Integer musicId;
     private Integer userId;
