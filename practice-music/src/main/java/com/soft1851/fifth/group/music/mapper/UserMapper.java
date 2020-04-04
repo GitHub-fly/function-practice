@@ -22,8 +22,17 @@ public interface UserMapper {
 
     /**
      * 通过用户id查找用户基本信息以及收藏的音乐的基本信息
+     *
      * @param user 用户
      * @return List<UserVo>
      */
     List<UserVo> selectUserInfo(User user);
+
+    /**
+     * 注册用户
+     *
+     * @param user
+     */
+    void insert(User user);
+
 }

@@ -3,4 +3,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.soft1851.fifth.group.music.mapper.MusicMapper">
 
+    <delete id="batchCancel" parameterType="Like">
+        DELETE FROM t_like
+        WHERE user_id = #{likes[0].userId} AND music_id IN
+        <foreach item="item" index="index" collection="likes" open="(" separator="," close=")">
+            (
+            #{item.musicId}
+            )
+        </foreach>
+    </delete>
+
+    <select id="selectMusicInfo" parameterType="Like" resultType="MusicVo">
+        SELECT m.id as music_id,
+               m.title,
+               m.url,
+               m.singer,
+               m.cover,
+               u.id as user_id,
+               u.name,
+               u.email,
+               u.phone_number,
+               u.credits
+        FROM t_music m
+                 LEFT JOIN t_like l
+                           ON m.id = l.music_id
+                 LEFT JOIN sys_user u
+                           ON u.id = l.user_id
+        WHERE m.id IN (
+            SELECT music_id
+            FROM t_like
+            WHERE user_id = #{userId}
+        )
+    </select>
+
 </mapper>

@@ -17,10 +17,17 @@
         </choose>
     </select>
 
-
     <select id="selectUserInfo" parameterType="User" resultType="UserVo">
-        SELECT u.id AS user_id, u.name, u.email, u.phone_number, u.credits,
-               m.id AS music_id, m.title, m.url, m.singer, m.cover
+        SELECT u.id AS user_id,
+               u.name,
+               u.email,
+               u.phone_number,
+               u.credits,
+               m.id AS music_id,
+               m.title,
+               m.url,
+               m.singer,
+               m.cover
         FROM sys_user u
                  LEFT JOIN t_like l
                            ON u.id = l.user_id
@@ -28,4 +35,16 @@
                            ON l.music_id = m.id
         WHERE u.id = #{id}
     </select>
+    <insert id="insert" parameterType="User">
+        INSERT INTO sys_user (name, password, salt, email, phone_number, status, binding, credits, create_time,
+        last_login_time)
+        <choose>
+            <when test="phoneNumber != null">
+                VALUES (' ',111111,#{salt}, ' ',#{phoneNumber}, 1,1,1,#{createTime},#{lastLoginTime})
+            </when>
+            <otherwise>
+                VALUES (' ',111111,#{salt}, #{email},' ', 1,1,1,#{createTime},#{lastLoginTime})
+            </otherwise>
+        </choose>
+    </insert>
 </mapper>

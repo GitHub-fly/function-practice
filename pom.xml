@@ -29,7 +29,6 @@
         <fastjson.version>1.2.66</fastjson.version>
         <mybatis.version>3.5.4</mybatis.version>
         <spring-mybatis.version>2.0.4</spring-mybatis.version>
-        <hibernate-version>5.4.13.Final</hibernate-version>
     </properties>
 
     <dependencies>
@@ -178,13 +177,6 @@
             <version>${spring.version}</version>
         </dependency>
 
-
-        <!-- Hibernate-->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate-version}</version>
-        </dependency>
         <!--SpringORM模块-->
         <dependency>
             <groupId>org.springframework</groupId>

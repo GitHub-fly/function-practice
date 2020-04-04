@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soft1851.fifth.group.music.mapper.LikeMapper">
+<!--      <resultMap id="likeMap" type="Like">-->
+<!--          <id column="music_id" property="musicId"/>-->
+<!--          <id column="user_id" property="userId"/>-->
+<!--      </resultMap>-->
+     <insert id="insert" parameterType="Like" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_like (music_id, user_id)
+        VALUES (#{musicId},#{userId})
+    </insert>
+    <delete id="delete" parameterType="int">
+         DELETE
+         FROM t_like
+         WHERE music_id = #{musicId}
+    </delete>
+</mapper>
