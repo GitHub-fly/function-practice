@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soft1851.fifth.group.music.mapper.UserMapper">
+
+    <select id="selectByDynamicSql" parameterType="User" resultType="User">
+        SELECT * FROM sys_user
+        WHERE 1 = 1
+        <choose>
+            <when test="email != null">
+                AND email LIKE "%"#{email}"%"
+            </when>
+            <otherwise>
+                AND phone_number LIKE "%"#{phoneNumber}"%"
+            </otherwise>
+
+        </choose>
+    </select>
+
+
+    <select id="selectUserInfo" parameterType="User" resultType="UserVo">
+        SELECT u.id AS user_id, u.name, u.email, u.phone_number, u.credits,
+               m.id AS music_id, m.title, m.url, m.singer, m.cover
+        FROM sys_user u
+                 LEFT JOIN t_like l
+                           ON u.id = l.user_id
+                 LEFT JOIN t_music m
+                           ON l.music_id = m.id
+        WHERE u.id = #{id}
+    </select>
+</mapper>
