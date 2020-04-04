@@ -29,6 +29,6 @@ public interface MusicMapper {
      * @param like
      * @return MusicVo
      */
-    MusicVo selectMusicInfo(Like like);
+    List<MusicVo> selectMusicInfo(Like like);
 
 }

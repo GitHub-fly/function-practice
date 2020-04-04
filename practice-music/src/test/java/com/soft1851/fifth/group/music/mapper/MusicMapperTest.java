@@ -31,6 +31,6 @@ public class MusicMapperTest {
     @Test
     public void selectMusicInfo() {
         Like like = Like.builder().userId(1).build();
-        System.out.println(musicMapper.selectMusicInfo(like));
+        musicMapper.selectMusicInfo(like).forEach(System.out::println);
     }
 }
