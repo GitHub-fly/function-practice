@@ -10,9 +10,9 @@
         INSERT INTO t_like (music_id, user_id)
         VALUES (#{musicId},#{userId})
     </insert>
-        <delete id="delete" parameterType="int">
-            DELETE
-            FROM t_like
-            WHERE music_id = #{musicId}
+    <delete id="delete" parameterType="int">
+         DELETE
+         FROM t_like
+         WHERE music_id = #{musicId}
     </delete>
 </mapper>

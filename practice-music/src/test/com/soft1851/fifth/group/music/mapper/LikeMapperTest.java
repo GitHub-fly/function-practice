@@ -8,13 +8,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
-import java.util.List;
 
-import static org.junit.Assert.*;
 
 /**
  * @Author xuyuan
- * @Date 2020/4/4 17:06
+ * @Date 2020/4/5 0:19
  * @Version 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,9 +24,8 @@ public class LikeMapperTest {
     public void insert(){
         Like like=new Like();
         like.setMusicId(5);
-        like.setUserId(4);
+        like.setUserId(5);
         likeMapper.insert(like);
-
     }
 
     @Test

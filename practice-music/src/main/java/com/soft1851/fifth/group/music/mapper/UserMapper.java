@@ -3,7 +3,6 @@ package com.soft1851.fifth.group.music.mapper;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 
-;
 /*@ClassName UserMapper
  *@Description:todo
  *@author yc_shang
