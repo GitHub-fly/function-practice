@@ -27,4 +27,10 @@ public class MusicMapperTest {
         }
         System.out.println(musicMapper.batchCancel(likes));
     }
+
+    @Test
+    public void selectMusicInfo() {
+        Like like = Like.builder().userId(1).build();
+        System.out.println(musicMapper.selectMusicInfo(like));
+    }
 }

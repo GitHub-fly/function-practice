@@ -1,6 +1,7 @@
 package com.soft1851.fifth.group.music.mapper;
 
 import com.soft1851.fifth.group.music.domain.entity.Like;
+import com.soft1851.fifth.group.music.domain.vo.MusicVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,5 +24,11 @@ public interface MusicMapper {
      */
     int batchCancel(@Param("likes") List<Like> likes);
 
+    /**
+     * 通过收藏表中的音乐id来查看歌曲详情和该首歌曲被收藏的用户的基本信息
+     * @param like
+     * @return MusicVo
+     */
+    MusicVo selectMusicInfo(Like like);
 
 }

@@ -1,11 +1,13 @@
 package com.soft1851.fifth.group.music.domain.vo;
 
+import com.soft1851.fifth.group.music.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author xunmi
@@ -19,18 +21,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class MusicVo {
-    private Integer userId;
     private Integer musicId;
     private String title;
     private String url;
     private String singer;
     private String cover;
-
-    private String name;
-    private String email;
-    private String phoneNumber;
     /**
-     * 用户积分
+     * 只包含用户的一些基本信息
      */
-    private Integer credits;
+    private List<User> users;
 }
