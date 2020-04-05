@@ -1,5 +1,7 @@
 package com.soft1851.fifth.group.music.service;
 
+import com.soft1851.fifth.group.music.domain.entity.User;
+
 /**
  * @author xunmi
  * @ClassName UserService
@@ -8,4 +10,8 @@ package com.soft1851.fifth.group.music.service;
  * @Version 1.0
  **/
 public interface UserService {
+    /**
+     * 用户登入增加积分
+     * */
+    void update(User user);
 }

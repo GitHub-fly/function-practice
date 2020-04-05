@@ -36,6 +36,7 @@
         )
     </select>
 
+<!--    批量插入-->
     <insert id="batchInsert" parameterType="Music">
         INSERT INTO t_music(title, url, singer, cover) VALUES
         <foreach collection="music" item="item" index="index" separator=",">
@@ -47,6 +48,7 @@
         </foreach>
     </insert>
 
+<!--    截断表-->
     <update id="truncate" parameterType="Music">
         TRUNCATE TABLE t_music;
     </update>
