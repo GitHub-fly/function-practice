@@ -3,6 +3,7 @@ package com.soft1851.fifth.group.music.mapper;
 
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.domain.vo.UserVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,6 +13,13 @@ import java.util.List;
  * @Date 2020-04-02
  **/
 public interface UserMapper {
+
+    /**
+     * 通过用户 id 查找该用户的 salt 值
+     * @param id
+     * @return
+     */
+    String getSaltById(@Param("id") Integer id);
 
     /**
      * 动态SQL查询

@@ -4,6 +4,7 @@ import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.mapper.UserMapper;
 import com.soft1851.fifth.group.music.service.UserService;
+import com.soft1851.fifth.group.music.util.Md5Util;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
         User user = User.builder()
                 .email(userDto.getEmail())
                 .phoneNumber(userDto.getPhoneNumber())
-                .password(userDto.getPassword())
+                .password(Md5Util.md5WithSalt(userDto.getPassword(), "140251C7A15D0135"))
                 .build();
         return userMapper.selectByDynamicSql(user);
     }

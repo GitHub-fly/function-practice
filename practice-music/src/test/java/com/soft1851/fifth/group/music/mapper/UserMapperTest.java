@@ -1,12 +1,14 @@
 package com.soft1851.fifth.group.music.mapper;
 
 import com.soft1851.fifth.group.music.domain.entity.User;
+import com.soft1851.fifth.group.music.util.Md5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/spring-mybatis.xml"})
@@ -39,5 +41,24 @@ public class UserMapperTest {
                 .credits(5)
                 .build();
         userMapper.update(user);
+    }
+
+    @Test
+    public void insert() {
+        String salt = Md5Util.salt();
+        System.out.println(salt);
+        User user = User.builder()
+                .phoneNumber("123123")
+                .salt(salt)
+                .password(Md5Util.md5WithSalt("123", salt))
+                .createTime(LocalDateTime.now())
+                .lastLoginTime(LocalDateTime.now())
+                .build();
+        userMapper.insert(user);
+    }
+
+    @Test
+    public void getSaltById() {
+        System.out.println(userMapper.getSaltById(16));
     }
 }

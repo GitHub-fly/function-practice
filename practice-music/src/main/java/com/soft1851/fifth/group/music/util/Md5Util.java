@@ -13,7 +13,7 @@ import java.util.Random;
  **/
 public class Md5Util {
     private static char[] hex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    /*
+    /**
      * 申明使用MD5算法,更改参数为"SHA"就是SHA算法了
      */
     private static MessageDigest md;
@@ -26,56 +26,42 @@ public class Md5Util {
         }
     }
 
-
     /**
      * @params: [inputStr] 输入明文
      * @Descrption: 不加盐MD5
      */
-    public static String Md5WithoutSalt(String inputStr) {
+    public static String md5WithoutSalt(String inputStr) {
         try {
-            return byte2HexStr(md.digest(inputStr.getBytes()));//哈希计算,转换输出
+            // 哈希计算，转换输出
+            return byte2HexStr(md.digest(inputStr.getBytes()));
         } catch (Exception e) {
             e.printStackTrace();
             return e.toString();
         }
-
     }
 
     /**
-     * @params: [inputStr, type] inputStr是输入的明文;type是处理类型，0表示注册存hash值到库时，1表示登录验证时
-     * @Descrption: MD5加盐，盐的获取分两种情况;输入明文加盐；输出密文带盐(将salt存储到hash值中)
+     * MD5加盐，盐的获取分两种情况;输入明文加盐；输出密文带盐(将salt存储到hash值中)
+     *
+     * @param inputStr 是输入的明文
+     * @param obj      是处理类型，"0" 表示注册存 hash 值到库时，其它值表示登录的时候传递的 salt 值
+     * @return 密文
      */
-    public static String Md5WithSalt(String inputStr, int type) {
+    public static String md5WithSalt(String inputStr, String salt) {
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");//申明使用MD5算法,更改参数为"SHA"就是SHA算法了
-
-            String salt = null;
-            if (type == 0) {//注册存hash值到库时，new salt
-                salt = salt();
-            } else if (type == 1) {//登录验证时，使用从库中查找到的hash值提取出的salt
-                String queriedHash = null;//从库中查找到的hash值
-                salt = getSaltFromHash(queriedHash);
-            }
-
-            String inputWithSalt = inputStr + salt;//加盐，输入加盐
-            String hashResult = byte2HexStr(md.digest(inputWithSalt.getBytes()));//哈希计算,转换输出
+            // 申明使用 MD5 算法，更改参数为"SHA"就是 SHA 算法了
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            // 加盐，输入加盐
+            String inputWithSalt = inputStr + salt;
+            // 哈希计算,转换输出
+            String hashResult = byte2HexStr(md.digest(inputWithSalt.getBytes()));
             System.out.println("加盐密文：" + hashResult);
-
-            /*将salt存储到hash值中，用于登陆验证密码时使用相同的盐*/
-            char[] cs = new char[48];
-            for (int i = 0; i < 48; i += 3) {
-                cs[i] = hashResult.charAt(i / 3 * 2);
-                cs[i + 1] = salt.charAt(i / 3);//输出带盐，存储盐到hash值中;每两个hash字符中间插入一个盐字符
-                cs[i + 2] = hashResult.charAt(i / 3 * 2 + 1);
-            }
-            hashResult = new String(cs);
             return hashResult;
         } catch (Exception e) {
             e.printStackTrace();
             return e.toString();
         }
     }
-
 
     /**
      * @return: salt
@@ -107,11 +93,11 @@ public class Md5Util {
         return result.toString();
     }
 
-
     /**
-     * @return: 提取的salt
-     * @params: [hash] 3i byte带盐的hash值,带盐方法与MD5WithSalt中相同
-     * @Descrption: 从库中查找到的hash值提取出的salt
+     * 从库中查找到的 hash 值提取出的salt
+     *
+     * @param hash 3i byte带盐的hash值,带盐方法与MD5WithSalt中相同
+     * @return 提取的salt
      */
     public static String getSaltFromHash(String hash) {
         StringBuilder sb = new StringBuilder();
@@ -126,8 +112,8 @@ public class Md5Util {
         String input = "123456";
         System.out.println("MD5加密" + "\n"
                 + "明文：" + input + "\n"
-                + "无盐密文：" + Md5WithoutSalt(input));
-        System.out.println("带盐密文：" + Md5WithSalt(input, 0));
+                + "无盐密文：" + md5WithoutSalt(input));
+        System.out.println("带盐密文：" + md5WithSalt(input, "0"));
     }
 
 }
