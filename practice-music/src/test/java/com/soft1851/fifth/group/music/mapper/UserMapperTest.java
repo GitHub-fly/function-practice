@@ -1,5 +1,6 @@
 package com.soft1851.fifth.group.music.mapper;
 
+import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.util.Md5Util;
 import org.junit.Test;
@@ -59,6 +60,8 @@ public class UserMapperTest {
 
     @Test
     public void getSaltById() {
-        System.out.println(userMapper.getSaltById(16));
+        UserDto userDto = UserDto.builder()
+                .phoneNumber("123123").build();
+        System.out.println(userMapper.getSaltById(userDto));
     }
 }

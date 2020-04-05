@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(UserDto userDto) {
+        String salt = userMapper.getSaltById(userDto);
         User user = User.builder()
                 .email(userDto.getEmail())
                 .phoneNumber(userDto.getPhoneNumber())
