@@ -3,14 +3,10 @@ package com.soft1851.fifth.group.music.controller;
 import com.alibaba.fastjson.JSON;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.soft1851.fifth.group.music.util.ResponseObject;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * @author xunmi
@@ -20,15 +16,18 @@ import java.time.LocalDateTime;
  * @Version 1.0
  **/
 @RestController
-@RequestMapping(value = "user", produces = "application/json; charset=UTF-8")
+@RequestMapping(value = "/api/user", produces = "application/json; charset=UTF-8")
 public class UserController {
 
     @Resource
     private UserService userService;
-
     @GetMapping(value = "/login")
     public User login() {
         return null;
     }
-
+    @PostMapping(value ="/register",produces = "application/json; charset=UTF-8")
+    public String register(@RequestParam User user){
+        ResponseObject ro = new ResponseObject(1,"成功",userService.register(user));
+        return  JSON.toJSONString(ro);
+    }
 }

@@ -9,10 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 
 /**
  * @author xunmi
@@ -43,15 +41,26 @@ public class UserServiceImpl implements UserService {
         // 获取当前时间
         LocalDateTime current = LocalDateTime.now();
         LocalDate currentLocalDate = current.toLocalDate();
-
         LocalDate priorTo = user.getLastLoginTime().toLocalDate();
-
         // 输出 判断 priorTo 是不是 currentLocalDate 的前一天
         System.out.println(priorTo.isBefore(currentLocalDate));
-
         if (priorTo.isBefore(currentLocalDate)) {
             user.setCredits(user.getCredits() + 5);
             userMapper.update(user);
         }
+    }
+
+    @Override
+    public User register(User user) {
+      String salt = Md5Util.salt();
+         User result = userMapper.selectuser(user);
+         if(result == null){
+             user.setPassword(Md5Util.md5WithSalt("123456",salt));
+             user.setSalt(salt);
+             user.setCreateTime(LocalDateTime.now());
+             user.setLastLoginTime(LocalDateTime.now());
+             userMapper.insert(user);
+         }
+        return user;
     }
 }

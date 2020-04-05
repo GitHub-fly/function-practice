@@ -4,7 +4,6 @@ package com.soft1851.fifth.group.music.mapper;
 import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.domain.vo.UserVo;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -49,4 +48,9 @@ public interface UserMapper {
      * 通过id修改用过户基本信息，增加用户积分
      * */
     void update(User user);
+
+    /**
+     *查询用户
+     * */
+    User selectuser(User user);
 }

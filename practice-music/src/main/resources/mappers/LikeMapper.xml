@@ -15,4 +15,10 @@
          FROM t_like
          WHERE music_id = #{musicId}
     </delete>
+
+    <select id="searchMusic" parameterType="Like" resultType="Like">
+        SELECT id,music_id,user_id
+        FROM t_like
+        WHERE music_id = #{musicId} AND user_id = #{userId}
+    </select>
 </mapper>

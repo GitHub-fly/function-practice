@@ -23,4 +23,5 @@ public class MusicServiceImpl implements MusicService {
     public List<MusicVo> selectMusicInfo(Like like) {
         return musicMapper.selectMusicInfo(like);
     }
+
 }

@@ -20,4 +20,5 @@ public interface MusicService {
      * @return MusicVo
      */
     List<MusicVo> selectMusicInfo(Like like);
+
 }

@@ -1,6 +1,7 @@
 package com.soft1851.fifth.group.music.mapper;
 
 import com.soft1851.fifth.group.music.domain.entity.Like;
+import com.soft1851.fifth.group.music.mapper.MusicMapper;
 import com.soft1851.fifth.group.music.util.MusicUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;

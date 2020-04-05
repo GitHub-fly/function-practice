@@ -45,6 +45,12 @@ public class UserMapperTest {
     }
 
     @Test
+    public void selectuser() {
+        User user = User.builder().phoneNumber("18094246920").build();
+        userMapper.selectuser(user);
+        System.out.println(user);
+    }
+    @Test
     public void insert() {
         String salt = Md5Util.salt();
         System.out.println(salt);

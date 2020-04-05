@@ -48,6 +48,19 @@
                            ON l.music_id = m.id
         WHERE u.id = #{id}
     </select>
+
+    <select id="selectuser" parameterType="User" resultType="User">
+        SELECT id, name, password, salt, email, phone_number, status, binding, credits, create_time, last_login_time FROM sys_user
+        <where>
+            <if test="phoneNumber !=null ">
+                phone_number =#{phoneNumber}
+            </if>
+            <if test="email !=null ">
+             OR   email =#{email}
+            </if>
+        </where>
+
+    </select>
     <insert id="insert" parameterType="User">
         INSERT INTO sys_user (name, password, salt, email, phone_number, status, binding, credits, create_time,
         last_login_time)
@@ -60,6 +73,7 @@
             </otherwise>
         </choose>
     </insert>
+
 
     <!--    用户修改，增加积分-->
     <update id="update" parameterType="User">

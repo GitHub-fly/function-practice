@@ -44,4 +44,5 @@ public interface MusicMapper {
      * @return int
      * */
      void truncate();
+
 }
