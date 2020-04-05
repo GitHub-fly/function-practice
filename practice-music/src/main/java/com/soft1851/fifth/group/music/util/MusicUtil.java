@@ -152,7 +152,7 @@ public class MusicUtil {
     public static void main(String[] args) throws Exception {
 //        getMusics();
         // 指定的歌手ID
-//        String []singer = {"1197168","939088","44266","6452","12138269","7763","11127","5781","1045123","1047337"};
+        String []singer = {"1197168","939088","44266","6452","12138269","7763","11127","5781","1045123","1047337"};
         for (Music music : musicSpider()) {
             System.out.println(music);
         }
