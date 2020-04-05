@@ -16,10 +16,9 @@
         <typeAlias type="com.soft1851.fifth.group.music.domain.entity.User" alias="User" />
         <typeAlias type="com.soft1851.fifth.group.music.domain.entity.Music" alias="Music" />
         <typeAlias type="com.soft1851.fifth.group.music.domain.entity.Like" alias="Like" />
-
         <typeAlias type="com.soft1851.fifth.group.music.domain.vo.UserVo" alias="UserVo" />
-
         <typeAlias type="com.soft1851.fifth.group.music.domain.vo.MusicVo" alias="MusicVo" />
+        <typeAlias type="com.soft1851.fifth.group.music.domain.dto.UserDto" alias="UserDto" />
 
     </typeAliases>
     <!--类型处理器-->

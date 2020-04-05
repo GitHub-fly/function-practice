@@ -1,7 +1,6 @@
 package com.soft1851.fifth.group.music.mapper;
 
 import com.soft1851.fifth.group.music.domain.entity.Like;
-import com.soft1851.fifth.group.music.domain.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -9,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @Date 2020/4/4 16:38
  * @Version 1.0
  */
-@Transactional(rollbackFor = Exception.class)
+
 public interface LikeMapper {
     /**
      *新增收藏用户
@@ -21,4 +20,8 @@ public interface LikeMapper {
      * @param id
      */
     void delete(int id);
+    /**
+     *查找用户收藏的数据
+     * */
+    Like searchMusic(Like like);
 }

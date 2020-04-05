@@ -1,6 +1,8 @@
 package com.soft1851.fifth.group.music.mapper;
 
+import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
+import com.soft1851.fifth.group.music.util.Md5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -50,9 +52,22 @@ public class UserMapperTest {
     }
     @Test
     public void insert() {
-        User user = User.builder().salt("1235").email("351234359@qq.com").createTime(LocalDateTime.now()).lastLoginTime(LocalDateTime.now()).build();
+        String salt = Md5Util.salt();
+        System.out.println(salt);
+        User user = User.builder()
+                .phoneNumber("123123")
+                .salt(salt)
+                .password(Md5Util.md5WithSalt("123", salt))
+                .createTime(LocalDateTime.now())
+                .lastLoginTime(LocalDateTime.now())
+                .build();
         userMapper.insert(user);
-        User user1 = User.builder().salt("1235").phoneNumber("18094246920").createTime(LocalDateTime.now()).lastLoginTime(LocalDateTime.now()).build();
-        userMapper.insert(user1);
+    }
+
+    @Test
+    public void getSaltById() {
+        UserDto userDto = UserDto.builder()
+                .phoneNumber("123123").build();
+        System.out.println(userMapper.getSaltById(userDto));
     }
 }

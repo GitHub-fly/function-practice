@@ -33,5 +33,10 @@ public class LikeMapperTest {
         likeMapper.delete(3);
     }
 
+    @Test
+    public void searchMusic() {
+        Like like = Like.builder().userId(1).musicId(1).build();
+        likeMapper.searchMusic(like);
+    }
 }
 

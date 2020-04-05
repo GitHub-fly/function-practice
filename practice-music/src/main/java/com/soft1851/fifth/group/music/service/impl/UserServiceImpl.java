@@ -27,10 +27,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(UserDto userDto) {
+        String salt = userMapper.getSaltById(userDto);
         User user = User.builder()
                 .email(userDto.getEmail())
                 .phoneNumber(userDto.getPhoneNumber())
-                .password(userDto.getPassword())
+                .password(Md5Util.md5WithSalt(userDto.getPassword(), "140251C7A15D0135"))
                 .build();
         return userMapper.selectByDynamicSql(user);
     }
@@ -51,10 +52,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
+      String salt = Md5Util.salt();
          User result = userMapper.selectuser(user);
          if(result == null){
-             user.setPassword(Md5Util.Md5WithSalt("123456",0));
-             user.setSalt(Md5Util.salt());
+             user.setPassword(Md5Util.md5WithSalt("123456",salt));
+             user.setSalt(salt);
              user.setCreateTime(LocalDateTime.now());
              user.setLastLoginTime(LocalDateTime.now());
              userMapper.insert(user);

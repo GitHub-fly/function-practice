@@ -19,8 +19,8 @@ public class UserServiceTest {
     @Test
     public void login() {
         UserDto userDto = UserDto.builder()
-                .email("1")
-                .password("1")
+                .phoneNumber("123123")
+                .password("123")
                 .build();
         System.out.println(userService.login(userDto));
     }
