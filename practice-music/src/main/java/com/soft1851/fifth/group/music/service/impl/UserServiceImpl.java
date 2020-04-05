@@ -1,5 +1,6 @@
 package com.soft1851.fifth.group.music.service.impl;
 
+import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.mapper.UserMapper;
 import com.soft1851.fifth.group.music.service.UserService;
@@ -7,8 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 
 /**
  * @author xunmi
@@ -17,12 +20,21 @@ import java.time.LocalDateTime;
  * @Date 2020/4/3
  * @Version 1.0
  **/
-
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
+
+    @Override
+    public User login(UserDto userDto) {
+        User user = User.builder()
+                .email(userDto.getEmail())
+                .phoneNumber(userDto.getPhoneNumber())
+                .password(userDto.getPassword())
+                .build();
+        return userMapper.selectByDynamicSql(user);
+    }
 
     @Override
     public void update(User user) {
@@ -40,5 +52,4 @@ public class UserServiceImpl implements UserService {
             userMapper.update(user);
         }
     }
-
 }

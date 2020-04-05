@@ -12,6 +12,7 @@ import java.util.List;
  * @Date 2020-04-02
  **/
 public interface UserMapper {
+
     /**
      * 动态SQL查询
      *
