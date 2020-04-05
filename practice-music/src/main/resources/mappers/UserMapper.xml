@@ -4,7 +4,9 @@
 <mapper namespace="com.soft1851.fifth.group.music.mapper.UserMapper">
 
     <select id="selectByDynamicSql" parameterType="User" resultType="User">
-        SELECT * FROM sys_user
+        SELECT id,name,email,phone_number,status,binding,credits,
+               create_time,last_login_time
+        FROM sys_user
         WHERE 1 = 1
         <choose>
             <when test="email != null">
