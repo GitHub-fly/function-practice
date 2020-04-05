@@ -31,4 +31,13 @@ public class UserMapperTest {
         User user = User.builder().id(1).build();
         userMapper.selectUserInfo(user).forEach(System.out::println);
     }
+
+    @Test
+    public void update() {
+        User user = User.builder()
+                .id(1)
+                .credits(5)
+                .build();
+        userMapper.update(user);
+    }
 }

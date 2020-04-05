@@ -47,4 +47,10 @@
             </otherwise>
         </choose>
     </insert>
+
+    <update id="update" parameterType="User">
+        UPDATE sys_user
+        SET credits = #{credits}
+        WHERE id = #{id}
+    </update>
 </mapper>

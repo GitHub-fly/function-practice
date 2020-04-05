@@ -47,4 +47,8 @@
         </foreach>
     </insert>
 
+    <update id="truncate" parameterType="Music">
+        TRUNCATE TABLE t_music;
+    </update>
+
 </mapper>
