@@ -44,7 +44,7 @@ public class Md5Util {
      * MD5加盐，盐的获取分两种情况;输入明文加盐；输出密文带盐(将salt存储到hash值中)
      *
      * @param inputStr 是输入的明文
-     * @param obj      是处理类型，"0" 表示注册存 hash 值到库时，其它值表示登录的时候传递的 salt 值
+     * @param salt      是处理类型，"0" 表示注册存 hash 值到库时，其它值表示登录的时候传递的 salt 值
      * @return 密文
      */
     public static String md5WithSalt(String inputStr, String salt) {

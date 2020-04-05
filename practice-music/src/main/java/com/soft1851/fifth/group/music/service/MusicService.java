@@ -13,6 +13,7 @@ public interface MusicService {
      * @return int
      */
     int batchCancel(@Param("likes") List<Like> likes);
+
     /**
      * 通过收藏表中的音乐id来查看歌曲详情和该首歌曲被收藏的用户的基本信息
      * @param like

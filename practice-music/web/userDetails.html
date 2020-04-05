@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="https://niit-soft.oss-cn-hangzhou.aliyuncs.com/icon/icons8_storage.ico"
+        type="image/x-icon">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.5em;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            color: #000000;
+            background: #f2e7ca url(images/templatemo_body.jpg) top center no-repeat;
+        }
+
+        .container {
+            margin: auto;
+            width: 1100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .container1 {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            margin-top: 20px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+        }
+
+        .container2 {
+            width: 30%;
+            margin-top: 10px;
+        }
+
+        .container3 {
+            width: 70%;
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .font-p {
+            font-size: 18px;
+            font-weight: 600;
+            font-family: Condiment, cursive;
+            letter-spacing: 0;
+        }
+
+        .img-width {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .but {
+            width: 100px;
+            height: 100px;
+            margin-left: 50px;
+            border-radius: 100px;
+            background-image: url("http://dwz.date/abYb");
+            background-size: calc(100%);
+            border: 1px solid #000000;
+        }
+
+        .zdiv {
+            position: absolute;
+            width: 400px;
+            height: 100px;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 20px;
+            display: flex;
+            color: #ffffff;
+        }
+
+        .font-h {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="container1">
+                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1987056521,861940727&fm=26&gp=0.jpg"
+                    class="img-width" />
+                <div class="zdiv">
+                    <div style="margin-top: 10px;">
+                        <h5 class="font-h">昵称：黑魅惑</h5>
+                        <h5 class="font-h">积分：1857</h5>
+                    </div>
+                    <button class="but"></button>
+                </div>
+            </div>
+            <div class="container2">
+                <div class="row" style="margin-left: -10px;">
+                    <div class="col s12 m6" style="width: 100%;">
+                        <div class="card">
+                            <div class="card-image">
+                                <img
+                                    src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4072217512,4243104397&fm=26&gp=0.jpg">
+                                <span class="card-title">黑魅惑</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                                        class="material-icons">+</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p class="font-p">电话：15677508575</p><br>
+                                <p class="font-p">邮箱：<a href="15677508575@sina.com">15677508575@sina.com</a></p><br>
+                                <p class="font-p">用户积分：1857</p><br>
+                                <p class="font-p">创建时间：2020-4-5</p><br>
+                                <p class="font-p">上次登录时间:
+                                    <br>2020-4-5 17:00:01</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container3">
+                <div class="col s12 m7" style="width: 48%;margin-left: 15px;">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img
+                                src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1236033233,452737009&fm=26&gp=0.jpg">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>歌手：薛之谦</p><br>
+                                <p>歌曲：丑八怪</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" style="margin: auto ">查看歌曲</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m7" style="width: 48%;margin-left: 15px;">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img
+                                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586089037510&di=29c1a4e20c850560f60111e710994235&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F03087bf40ad162d9d0a4aa1a17dfa9ec8a13cd6a.jpg">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>歌手：Danny McCarthy</p><br>
+                                <p>歌曲：TSilver Scrapes</p>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">查看歌曲</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m7" style="width: 48%;margin-left: 15px;">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img
+                                src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=165762685,4231858331&fm=26&gp=0.jpg">
+                        </div>
+                        <div class=" card-stacked">
+                            <div class="card-content">
+                                <p>歌手：周杰伦</p><br>
+                                <p>歌曲：稻香</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">查看歌曲</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {}
+    });
+</script>
+
+</html>

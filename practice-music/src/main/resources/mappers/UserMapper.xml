@@ -56,7 +56,7 @@
                 VALUES (' ', #{password}, #{salt}, ' ', #{phoneNumber}, 1, 1, 1, #{createTime}, #{lastLoginTime})
             </when>
             <otherwise>
-                VALUES (' ', 111111, #{salt}, #{email}, ' ', 1, 1, 1, #{createTime}, #{lastLoginTime})
+                VALUES (' ', #{password}, #{salt}, #{email}, ' ', 1, 1, 1, #{createTime}, #{lastLoginTime})
             </otherwise>
         </choose>
     </insert>
