@@ -2,7 +2,7 @@ package com.soft1851.fifth.group.music.service;
 
 import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
-import com.soft1851.fifth.group.music.domain.vo.UserVo;
+
 
 /**
  * @author xunmi
@@ -18,4 +18,10 @@ public interface UserService {
      * @return
      */
     User login(UserDto userDto);
+
+    /**
+     * 用户登入增加积分
+     */
+    void update(User user);
+
 }

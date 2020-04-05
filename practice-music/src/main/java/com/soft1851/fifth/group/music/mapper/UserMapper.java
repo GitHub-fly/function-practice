@@ -36,4 +36,8 @@ public interface UserMapper {
      */
     void insert(User user);
 
+    /**
+     * 通过id修改用过户基本信息，增加用户积分
+     * */
+    void update(User user);
 }
