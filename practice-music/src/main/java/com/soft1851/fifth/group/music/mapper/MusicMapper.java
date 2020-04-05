@@ -1,6 +1,7 @@
 package com.soft1851.fifth.group.music.mapper;
 
 import com.soft1851.fifth.group.music.domain.entity.Like;
+import com.soft1851.fifth.group.music.domain.entity.Music;
 import com.soft1851.fifth.group.music.domain.vo.MusicVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,4 +32,16 @@ public interface MusicMapper {
      */
     List<MusicVo> selectMusicInfo(Like like);
 
+    /**
+     * 批量插入
+     * @param musics
+     * @return int
+     * */
+    int[] batchInsert(@Param("music") List<Music> musics);
+
+    /**
+     * 截断SQL表
+     * @return int
+     * */
+     void truncate();
 }
