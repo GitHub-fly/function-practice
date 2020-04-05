@@ -8,10 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-
 import java.time.LocalDateTime;
-
-import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/spring-mybatis.xml"})
 public class UserServiceTest {
@@ -36,5 +33,11 @@ public class UserServiceTest {
         user.setId(1);
         user.setCredits(5);
         userService.update(user);
+    }
+
+    @Test
+    public void register() {
+        User user = User.builder().phoneNumber("18260350408").build();
+        userService.register(user);
     }
 }

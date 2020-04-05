@@ -40,4 +40,9 @@ public interface UserMapper {
      * 通过id修改用过户基本信息，增加用户积分
      * */
     void update(User user);
+
+    /**
+     *查询用户
+     * */
+    User selectuser(User user);
 }

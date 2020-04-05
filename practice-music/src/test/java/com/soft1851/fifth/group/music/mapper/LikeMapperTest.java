@@ -9,7 +9,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 
-
 /**
  * @Author xuyuan
  * @Date 2020/4/5 0:19
@@ -20,9 +19,10 @@ import javax.annotation.Resource;
 public class LikeMapperTest {
     @Resource
     private LikeMapper likeMapper;
+
     @Test
-    public void insert(){
-        Like like=new Like();
+    public void insert() {
+        Like like = new Like();
         like.setMusicId(5);
         like.setUserId(5);
         likeMapper.insert(like);
@@ -32,4 +32,6 @@ public class LikeMapperTest {
     public void delete() {
         likeMapper.delete(3);
     }
+
 }
+

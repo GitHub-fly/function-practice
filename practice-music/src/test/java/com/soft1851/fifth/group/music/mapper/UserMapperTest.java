@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/spring-mybatis.xml"})
@@ -39,5 +40,19 @@ public class UserMapperTest {
                 .credits(5)
                 .build();
         userMapper.update(user);
+    }
+
+    @Test
+    public void selectuser() {
+        User user = User.builder().phoneNumber("18094246920").build();
+        userMapper.selectuser(user);
+        System.out.println(user);
+    }
+    @Test
+    public void insert() {
+        User user = User.builder().salt("1235").email("351234359@qq.com").createTime(LocalDateTime.now()).lastLoginTime(LocalDateTime.now()).build();
+        userMapper.insert(user);
+        User user1 = User.builder().salt("1235").phoneNumber("18094246920").createTime(LocalDateTime.now()).lastLoginTime(LocalDateTime.now()).build();
+        userMapper.insert(user1);
     }
 }

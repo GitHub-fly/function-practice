@@ -4,14 +4,13 @@ import com.soft1851.fifth.group.music.domain.dto.UserDto;
 import com.soft1851.fifth.group.music.domain.entity.User;
 import com.soft1851.fifth.group.music.mapper.UserMapper;
 import com.soft1851.fifth.group.music.service.UserService;
+import com.soft1851.fifth.group.music.util.Md5Util;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 
 /**
  * @author xunmi
@@ -41,15 +40,25 @@ public class UserServiceImpl implements UserService {
         // 获取当前时间
         LocalDateTime current = LocalDateTime.now();
         LocalDate currentLocalDate = current.toLocalDate();
-
         LocalDate priorTo = user.getLastLoginTime().toLocalDate();
-
         // 输出 判断 priorTo 是不是 currentLocalDate 的前一天
         System.out.println(priorTo.isBefore(currentLocalDate));
-
         if (priorTo.isBefore(currentLocalDate)) {
             user.setCredits(user.getCredits() + 5);
             userMapper.update(user);
         }
+    }
+
+    @Override
+    public User register(User user) {
+         User result = userMapper.selectuser(user);
+         if(result == null){
+             user.setPassword(Md5Util.Md5WithSalt("123456",0));
+             user.setSalt(Md5Util.salt());
+             user.setCreateTime(LocalDateTime.now());
+             user.setLastLoginTime(LocalDateTime.now());
+             userMapper.insert(user);
+         }
+        return user;
     }
 }
